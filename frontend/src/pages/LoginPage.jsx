@@ -1,4 +1,8 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import travel from '../assets/travel.jpg';
+import Facebook from '../assets/Facebook.svg';
+import Apple from '../assets/Apple.svg';
+import Google from '../assets/Google.svg';
 
 const LoginPage = () => {
   return (
@@ -6,8 +10,56 @@ const LoginPage = () => {
       <Navbar />
       <hr />
 
+      <div className="container mx-auto my-8 p-4 md:my-20 md:p-14 flex flex-col md:flex-row bg-neutral-200 border border-neutral-400 w-11/12 md:w-9/12 rounded-xl">
+
+        {/* image */}
+        <div className="w-full md:w-1/2 mb-8 md:mb-0 flex justify-center md:items-center">
+          <div className="w-4/5 rounded-sm">
+            <img src={travel} alt="travel" className="w-full h-auto rounded-sm" />
+          </div>
+        </div>
+
+        {/* login */}
+        <div className="w-full md:w-1/2">
+          <h4 className="text-xl font-black mb-4">Login</h4>
+          <h6>Login to access your Easyset24 account</h6>
+          <div className="my-4">
+            <h6 className="text-sm font-semibold my-1">Email</h6>
+            <input type="text" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+          </div>
+
+          <div className="my-4">
+            <h6 className="text-sm font-semibold my-1">Password</h6>
+            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center gap-2 my-4">
+              <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" />
+              <h6 className="text-sm font-medium">Remember Me</h6>
+            </div>
+
+            <div>
+              <h6 className="text-sm font-semibold text-[#07689F]">Forgot Password?</h6>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center gap-2 mt-4">
+            <button className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
+            <h6 className="text-sm">Or</h6>
+            <div className="flex items-center gap-4 md:gap-10">
+              <img src={Facebook} alt="Facebook" className="w-6 h-6 md:w-8 md:h-8" />
+              <img src={Apple} alt="Apple" className="w-6 h-6 md:w-8 md:h-8" />
+              <img src={Google} alt="Google" className="w-6 h-6 md:w-8 md:h-8" />
+            </div>
+            <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]">Register</b></h6>
+          </div>
+
+        </div>
+      </div>
+
     </>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

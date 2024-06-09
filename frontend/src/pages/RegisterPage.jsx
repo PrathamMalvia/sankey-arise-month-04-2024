@@ -52,7 +52,7 @@ const RegisterPage = () => {
 
           <div className="flex items-center gap-2 my-4">
             <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" />
-            <h6 className="text-sm">I agree to all the Terms and Privacy Policies</h6>
+            <h6 className="text-sm font-medium">I agree to all the Terms and Privacy Policies</h6>
           </div>
 
           <div className="my-2">
@@ -60,7 +60,7 @@ const RegisterPage = () => {
           </div>
 
           <div className="flex flex-col items-center gap-2 mt-4">
-            <h6 className="text-sm">Already have an account? Login</h6>
+            <h6 className="text-sm">Already have an account? <b className="text-[#07689F]">Login</b> </h6>
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
               <img src={Facebook} alt="Facebook" className="w-6 h-6 md:w-8 md:h-8" />
@@ -70,6 +70,7 @@ const RegisterPage = () => {
           </div>
 
         </div>
+
       </div>
 
     </>
