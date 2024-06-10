@@ -3,6 +3,7 @@ import travel from '../assets/travel.jpg';
 import Facebook from '../assets/Facebook.svg';
 import Apple from '../assets/Apple.svg';
 import Google from '../assets/Google.svg';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
   return (
@@ -26,32 +27,32 @@ const RegisterPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between my-4">
             <div className="w-full md:w-4/5 mb-4 md:mb-0 md:mr-4">
               <h6 className="text-sm font-semibold my-1">First Name</h6>
-              <input type="text" name="firstname" id="firstname" placeholder="Pratham" className="w-full h-10 p-2 border border-slate-400 rounded-sm" />
+              <input type="text" name="firstname" id="firstname" placeholder="Pratham" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
             </div>
 
             <div className="w-full md:w-4/5">
               <h6 className="text-sm font-semibold my-1">Last Name</h6>
-              <input type="text" name="lastname" id="lastname" placeholder="Malvia" className="w-full h-10 p-2 border border-slate-400 rounded-sm" />
+              <input type="text" name="lastname" id="lastname" placeholder="Malvia" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
             </div>
           </div>
 
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Email</h6>
-            <input type="text" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+            <input type="email" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
           </div>
 
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Password</h6>
-            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" pattern=".{8,}" title="Password must be at least 8 characters long" required />
           </div>
 
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Confirm Password</h6>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+            <input type="password" name="confirm-password" id="confirm-password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
           </div>
 
           <div className="flex items-center gap-2 my-4">
-            <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" />
+            <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" required />
             <h6 className="text-sm font-medium">I agree to all the Terms and Privacy Policies</h6>
           </div>
 
@@ -60,12 +61,12 @@ const RegisterPage = () => {
           </div>
 
           <div className="flex flex-col items-center gap-2 mt-4">
-            <h6 className="text-sm">Already have an account? <b className="text-[#07689F]">Login</b> </h6>
+            <h6 className="text-sm">Already have an account? <b className="text-[#07689F]"><Link to="/login">Login</Link></b> </h6>
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
-              <img src={Facebook} alt="Facebook" className="w-6 h-6 md:w-8 md:h-8" />
-              <img src={Apple} alt="Apple" className="w-6 h-6 md:w-8 md:h-8" />
-              <img src={Google} alt="Google" className="w-6 h-6 md:w-8 md:h-8" />
+              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10" />
             </div>
           </div>
 

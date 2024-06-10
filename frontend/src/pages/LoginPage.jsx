@@ -3,6 +3,7 @@ import travel from '../assets/travel.jpg';
 import Facebook from '../assets/Facebook.svg';
 import Apple from '../assets/Apple.svg';
 import Google from '../assets/Google.svg';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
@@ -21,16 +22,16 @@ const LoginPage = () => {
 
         {/* login */}
         <div className="w-full md:w-1/2">
-          <h4 className="text-xl font-black mb-4">Login</h4>
+          <h4 className="text-xl font-black mb-2">Login</h4>
           <h6>Login to access your Easyset24 account</h6>
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Email</h6>
-            <input type="text" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+            <input type="email" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
           </div>
 
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Password</h6>
-            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" />
+            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between">
@@ -48,11 +49,12 @@ const LoginPage = () => {
             <button className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
-              <img src={Facebook} alt="Facebook" className="w-6 h-6 md:w-8 md:h-8" />
-              <img src={Apple} alt="Apple" className="w-6 h-6 md:w-8 md:h-8" />
-              <img src={Google} alt="Google" className="w-6 h-6 md:w-8 md:h-8" />
+              <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Apple} alt="Apple" className="w-8 h-8 md:w-10 md:h-10" />
+              <img src={Google} alt="Google" className="w-8 h-8 md:w-10 md:h-10" />
             </div>
-            <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]">Register</b></h6>
+            <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]"><Link to="/register">Register</Link>
+            </b></h6>
           </div>
 
         </div>
