@@ -27,12 +27,12 @@ const RegisterPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between my-4">
             <div className="w-full md:w-4/5 mb-4 md:mb-0 md:mr-4">
               <h6 className="text-sm font-semibold my-1">First Name</h6>
-              <input type="text" name="firstname" id="firstname" placeholder="Pratham" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
+              <input type="text" name="firstName" id="firstName" placeholder="Pratham" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
             </div>
 
             <div className="w-full md:w-4/5">
               <h6 className="text-sm font-semibold my-1">Last Name</h6>
-              <input type="text" name="lastname" id="lastname" placeholder="Malvia" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
+              <input type="text" name="lastName" id="lastName" placeholder="Malvia" className="w-full h-10 p-2 border border-slate-400 rounded-sm" required />
             </div>
           </div>
 
@@ -48,7 +48,7 @@ const RegisterPage = () => {
 
           <div className="my-4">
             <h6 className="text-sm font-semibold my-1">Confirm Password</h6>
-            <input type="password" name="confirm-password" id="confirm-password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
           </div>
 
           <div className="flex items-center gap-2 my-4">
