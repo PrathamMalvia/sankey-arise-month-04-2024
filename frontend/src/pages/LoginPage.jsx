@@ -1,11 +1,42 @@
+import { useState } from 'react';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import travel from '../assets/travel.jpg';
 import Facebook from '../assets/Facebook.svg';
 import Apple from '../assets/Apple.svg';
 import Google from '../assets/Google.svg';
-import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:4000/api/login', formData);
+
+      if (response.status === 200) {
+        alert('Login successful');
+        navigate('/'); // Navigate to the home page
+      } else {
+        alert('Login failed. Please check your credentials.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -24,29 +55,36 @@ const LoginPage = () => {
         <div className="w-full md:w-1/2">
           <h4 className="text-xl font-black mb-2">Login</h4>
           <h6>Login to access your Easyset24 account</h6>
-          <div className="my-4">
-            <h6 className="text-sm font-semibold my-1">Email</h6>
-            <input type="email" name="email" id="email" placeholder="example@gmail.com" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
-          </div>
-
-          <div className="my-4">
-            <h6 className="text-sm font-semibold my-1">Password</h6>
-            <input type="password" name="password" id="password" placeholder="***************" className="w-full p-2 h-10 border border-slate-400 rounded-sm" required />
-          </div>
-
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center gap-2 my-4">
-              <input type="checkbox" name="checkbox" id="checkbox" className="w-5 h-5" />
-              <h6 className="text-sm font-medium">Remember Me</h6>
+          <form onSubmit={handleSubmit}>
+            <div className="my-4">
+              <h6 className="text-sm font-semibold my-1">Email</h6>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="example@gmail.com"
+                className="w-full p-2 h-10 border border-slate-400 rounded-sm"
+                required
+                value={formData.email}
+                onChange={handleChange}
+              />
             </div>
-
-            <div>
-              <h6 className="text-sm font-semibold text-[#07689F]">Forgot Password?</h6>
+            <div className="my-4">
+              <h6 className="text-sm font-semibold my-1">Password</h6>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="***************"
+                className="w-full p-2 h-10 border border-slate-400 rounded-sm"
+                required
+                value={formData.password}
+                onChange={handleChange}
+              />
             </div>
-          </div>
-
+            <button type="submit" className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
+          </form>
           <div className="flex flex-col items-center gap-2 mt-4">
-            <button className="w-full h-10 bg-[#07689F] text-white font-bold rounded-sm">Login</button>
             <h6 className="text-sm">Or</h6>
             <div className="flex items-center gap-4 md:gap-10">
               <img src={Facebook} alt="Facebook" className="w-8 h-8 md:w-10 md:h-10" />
@@ -56,10 +94,8 @@ const LoginPage = () => {
             <h6>Don&apos;t have an account in EasySet24 yet? <b className="text-[#07689F]"><Link to="/register">Register</Link>
             </b></h6>
           </div>
-
         </div>
       </div>
-
     </>
   );
 }
